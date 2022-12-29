@@ -1,4 +1,4 @@
-public class UE_07_Strings {
+public class UE07Strings {
     public static void main(String[] args) {
         System.out.println(repeat("ab", 3));
         System.out.println(reverse("1234"));
@@ -90,17 +90,6 @@ public class UE_07_Strings {
             rstring = s;
         }
         return rstring;
-    }
-
-    public static String reverse(String s) {
-        String r_String = "";
-
-        for (int i = s.length() - 1; i >= 0; i--) {
-            r_String += s.charAt(i);
-        }
-
-
-        return r_String;
     }
 
     public static String right(String s, int length) {
