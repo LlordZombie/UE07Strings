@@ -79,5 +79,77 @@ public class UE_07_Strings {
         }
         return returnString;
     }
+    public static String cut(String s, int length) {
+        String rstring = "";
+        if (s.length() > length) {
+            for (int i = 0; i < length - 3; i++) {
+                rstring += s.charAt(i);
+            }
+            rstring += "...";
+        } else if (s.length() <= length) {
+            rstring = s;
+        }
+        return rstring;
+    }
+
+    public static String reverse(String s) {
+        String r_String = "";
+
+        for (int i = s.length() - 1; i >= 0; i--) {
+            r_String += s.charAt(i);
+        }
+
+
+        return r_String;
+    }
+
+    public static String right(String s, int length) {
+        String rstring = "";
+        if (s.length() < length) {
+            rstring = s;
+        } else if (s.length() >= length) {
+            for (int i = s.length(); i > s.length()-length; i--) {
+                rstring += s.charAt(i-1);
+            }rstring=reverse(rstring);
+        }
+        return rstring;
+    }
+
+    public static String left(String s, int length){
+        String rstring = "";
+        if (s.length() > length) {
+            for (int i = 0; i < length; i++) {
+                rstring += s.charAt(i);
+            }
+
+        } else if (s.length() <= length) {
+            rstring = s;
+        }
+        return rstring;
+    }
+    public static boolean isVovelorUmlaut(char c) {
+        int i = (int) c;
+        boolean r = false;
+
+        if (i == 65 || i == 69 || i == 73 || i == 79 || i == 85 || i == 97 || i == 101 || i == 105 || i == 111 || i == 117) {
+            r = true;
+        }
+        if (i == 132 || i == 148 || i == 129 || i == 142 || i == 153 || i == 154) {
+            r = true;
+        }
+        return r;
+    }
+    public static String toBBLanguage(String sentence){
+        String r = "";
+        for (int i = 0; i < sentence.length(); i++) {
+            if(isVowel(sentence.charAt(i)) || isUmlaut(sentence.charAt(i))){
+                r+=  sentence.charAt(i) + "b" + sentence.charAt(i);
+            }
+            else {
+                r += sentence.charAt(i);
+            }
+        }
+        return r;
+    }
 
 }
